@@ -114,9 +114,11 @@ To make NFRs measurable, we use specific metrics: service-level targets (SLA/SLO
 
 The **Apdex Score** is a standardized metric for user satisfaction based on response-time thresholds. It ranges from **0 (no users satisfied)** to **1 (all users satisfied)**.
 
-```
-Apdex = (Number of Satisfied Requests + (0.5 × Number of Tolerating Requests)) / Total Number of Requests
-```
+
+$$
+\text{Apdex} = \frac{\text{Satisfied Requests} + (0.5 \times \text{Tolerating Requests})}{\text{Total Requests}}
+$$
+
 
 *   **Satisfied** requests: response time at or below the target threshold.
 *   **Tolerating** requests: response time above the target but within the tolerance threshold (by convention, up to **4×** the target).
