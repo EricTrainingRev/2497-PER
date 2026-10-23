@@ -21,6 +21,14 @@ public class Human {
         return "Hello! my name is %s and I am %d years old".formatted(name, age);
     }
 
+    @Override
+    public String toString() {
+        return "Human{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
+
     public static void main(String[] args) {
         /*
             There are two ways you can initialize your variables in Java:

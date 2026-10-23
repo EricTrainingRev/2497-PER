@@ -1,5 +1,9 @@
 package examples;
 
+import examples.shapes.*;
+
+import java.util.Scanner;
+
 public class ControlFlow {
 
     public static void main(String[] args) {
@@ -59,6 +63,62 @@ public class ControlFlow {
         }
 
 
+        // while loops are useful when you don't know how many times your loop needs to execute
+        var keepGoing = true;
+        // this is a convinient option to get user input from the terminal
+        var scanner = new Scanner(System.in);
+        while(keepGoing){
+            System.out.print("Enter your name or q to quit: ");
+            String userInput = scanner.nextLine();
+            if(userInput.equals("q")){
+                System.out.println("Goodbye!");
+                keepGoing = false;
+            } else {
+                System.out.println("Hello " + userInput);
+            }
+        }
+        // make sure to close your scanner when done with it
+        scanner.close();
+
+        // if you want to check your logical condition after your loop has executed instead of before execution you can
+        // use a do-while loop. This is also useful if you want the code to always execute at least one time
+        do{
+            System.out.println("This will print even though we hard-code a false boolean in the while check");
+        } while(false);
+
+        // Switch statements are a way of performing pattern matching: you provide a value to match against and depening
+        // on whether or not you have coded a match for the input one or more actions may occur
+        var slagathor = "Slagathor";
+        switch (slagathor){
+            case "billy":
+                System.out.println("Hello Billy");
+                break;
+            case "Slagathor":
+                System.out.println("Watch out for Slagathor!");
+                break;
+            case "Sally":
+                System.out.println("Hello Sally");
+                break;
+            default:
+                System.out.println("I don't know you");
+        }
+
+        // When working with sealed classes (see shapes package) you can use a switch statement to cover all possible
+        // types your sealed class could be. The compiler will require you to accomodate all possible options
+        Shape myShape = new Triangle();
+        switch (myShape){
+            case Circle c: 
+                System.out.println("This is a circle shape!"); 
+                break;
+            case Rectanglee r:
+                System.out.println("This is a Rectanglee shape!");
+                break;
+            case Triangle t:
+                System.out.println("This is a Triangle shape!");
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + myShape);
+        }
 
     }
 
