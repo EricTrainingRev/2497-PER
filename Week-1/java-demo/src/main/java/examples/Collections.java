@@ -2,7 +2,7 @@ package examples;
 
 import java.util.*;
 
-public class collections {
+public class Collections {
 
     /*
         The Collection API is a standardized set of containers provided in the base JDK for storing data in your application
@@ -55,6 +55,37 @@ public class collections {
         System.out.println(lineToTheClub.pollLast());
         System.out.println(lineToTheClub);
 
+        // Maps are key value pairs
+        // first generic is the key type, second generic is the value type
+        Map<String, Human> humanMap = new HashMap<>();
+        humanMap.put(billy.name, billy);
+        humanMap.put("Sally", sally);
+        humanMap.put("slagathor", slagathor);
+
+        System.out.println(humanMap.get(sally.name));
+        System.out.println(humanMap.get("sallyy"));
+
+        for(String key : humanMap.keySet()){
+            System.out.println(key);
+        }
+
+        for(Human value : humanMap.values()){
+            System.out.println(value);
+        }
+
+        /*
+            When working with collections it is quite common to use lambda statements to perform actions with the
+            elements of your collections.
+         */
+
+        people.forEach(person -> System.out.println(person));
+        // the example below is the shorthand syntax for the code above
+        people.forEach(System.out::println);
+
+        people.forEach(person -> {
+            String nameAllUpper = person.name.toUpperCase();
+            System.out.println(nameAllUpper);
+        });
 
     }
 
