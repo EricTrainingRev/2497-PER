@@ -41,7 +41,7 @@ Every SQL statement passes through a predictable set of stages before returning 
 **Query Parsing Order of Operations:** SQL clauses are logically processed in a specific order, which differs from their written order:
 
 ```sql
-FROM
+FROM --JOIN operations happen here
 WHERE
 GROUP BY
 HAVING
